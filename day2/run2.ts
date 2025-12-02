@@ -6,7 +6,7 @@ function isInvalidId(id: number) {
     // for (let i = Math.floor(idLength / 2); i > 0; i--) {
     for (let i = 1; i <= Math.floor(idLength / 2); i++) {
         const part = idString.substr(0, i);
-        if (idString.split(part).join('') === '') {
+        if (idLength % i === 0 && idString.split(part).join('') === '') {
             return true;
         }
     }
