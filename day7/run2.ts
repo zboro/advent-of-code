@@ -1,6 +1,6 @@
 import { readFile } from 'node:fs';
 
-function addBeam(newBeamIndex, beamTimes, beams) {
+function addBeam(newBeamIndex: number, beamTimes: number, beams: Record<number, number>) {
     if (beams[newBeamIndex] === undefined) {
         beams[newBeamIndex] = beamTimes;
         return;
@@ -13,11 +13,6 @@ readFile(process.argv[2], 'utf-8', (err, data) => {
     const rows = data.split('\n').filter(Boolean);
 
     const map: string[][] = rows.map(rows => rows.split(''));
-
-    type Beam = {
-        index: number;
-        times: number;
-    };
 
     let beams: Record<number, number> = {
         [map[0].indexOf('S')]: 1
